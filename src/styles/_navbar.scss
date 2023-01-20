@@ -1,0 +1,128 @@
+// Define base styles for navbar
+@use './variables';
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+}
+
+.navbar {
+  font-size: 1.1em;
+  padding: 1em 0.5em 0.5em 0.5em;
+  font-weight: 500;
+  color: $text-color;
+
+  ul {
+    list-style-type: none;
+
+    .active {
+      border-bottom: 3px solid $secondary
+    }
+
+    .unactive {
+      border-bottom: 3px solid $bg-color;
+      color: $disabled
+    }
+  }
+
+  li {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+  }
+
+  li:hover {
+      transform: scale(1.1);
+      color: $text-color
+  }
+
+  div.logo-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    cursor: pointer;
+
+    div.logo-text{
+      font-weight: 600;
+      color: $text-color;
+      margin-left: 10px;
+      align-self: center;
+      font-size: x-large;
+    }
+  }
+
+  div.link-info {
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    ul {
+      grid-column-start: 1;
+      grid-column-end: 5;
+      display: flex;
+      justify-content: center;
+      gap: 10%;
+    }
+  }
+  
+  div.link-cta {
+    margin-left: 20px;
+    margin-right: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    ul {
+      display: grid;
+      grid-column-start: 1;
+      grid-template-columns: repeat(2, 50%);
+      grid-column-end: 3;
+    }
+
+    li.login {
+      color: $secondary
+    }
+
+    li.signup {
+      background-color: $secondary;
+      color: $bg-color;
+      padding: 10px;
+      border-radius: .8em;
+    }
+
+    li.signup:hover {
+      background-color: unset;
+      box-sizing: border-box;
+      outline: 2px solid $secondary;
+      border-radius: .8em;
+      color: $secondary;
+      transform: scale(1)
+    }
+  }
+}
+
+// Media queries for different screen sizes
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+
+      a {
+          margin: 0.5em 0;
+          text-align: center;
+      }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+      flex-wrap: nowrap;
+
+      a {
+          margin: 0 1em;
+      }
+  }
+}
