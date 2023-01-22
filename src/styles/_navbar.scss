@@ -2,15 +2,74 @@
 @use './variables';
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 20% auto 20%;
+  box-sizing: border-box;
+}
+
+.navbar.hidden {
+    display: none;
+}
+
+.navbar.animation {
+  div {
+    display: flex;
+    grid-column-start: 2;
+    font-size: 20px;
+    grid-column-end: 3;
+  }
+
+  div, li {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+
+
+  li.login {
+    color: $secondary;
+    justify-self: start;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  button.signup {
+    background: $secondary;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    color: $bg-color;
+    padding: 0.5em 1em;
+    margin-right: 0.25em;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 1em;
+    text-align: center;
+    justify-self: center;
+    cursor: pointer;
+  }
+
+  button.signup:hover {
+    background-color: unset;
+    outline: 2px solid $secondary;
+    text-align: center;
+    border-radius: .8em;
+    color: $secondary;
+    transform: scale(1)
+  }
 }
 
 .navbar {
-  font-size: 1.1em;
-  padding: 1em 0.5em 0.5em 0.5em;
+  display: grid;
+  grid-template-columns: 15% auto 20% 5%;
+  font-size: 16px;
+  padding: 1em 0.5em 1em 0.5em;
   font-weight: 500;
   color: $text-color;
+  border-bottom: 0.1px solid rgb(219, 214, 214);
+
+  .logo {
+    width: 40px;
+  }
+
 
   ul {
     list-style-type: none;
@@ -43,6 +102,9 @@
     align-items: center;
     margin-left: 50px;
     cursor: pointer;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: end;
 
     div.logo-text{
       font-weight: 600;
@@ -55,22 +117,42 @@
 
   div.link-info {
     display: grid;
-    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-template-columns: repeat(5, calc(100% / 5));
     grid-column-start: 2;
     grid-column-end: 3;
 
     ul {
+      display: grid;
+      grid-template-columns: repeat(5, calc(100% / 5));
       grid-column-start: 1;
+      grid-column-end: 6;
+    }
+
+    li {
+      display: grid;
+    }
+
+    .home {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      justify-self: center;
+    }
+
+    .aboutus {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      justify-self: center;
+    }
+
+    .tutorial {
+      grid-column-start: 4;
       grid-column-end: 5;
-      display: flex;
-      justify-content: center;
-      gap: 10%;
+      justify-self: center;
     }
   }
   
   div.link-cta {
-    margin-left: 20px;
-    margin-right: 50px;
+    // margin-right: 50px;
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-column-start: 3;
@@ -78,51 +160,163 @@
 
     ul {
       display: grid;
+      grid-template-columns: 20% 80%;
       grid-column-start: 1;
-      grid-template-columns: repeat(2, 50%);
       grid-column-end: 3;
     }
 
     li.login {
-      color: $secondary
+      color: $secondary;
+      justify-self: start;
+      grid-column-start: 1;
+      grid-column-end: 2;
     }
 
-    li.signup {
-      background-color: $secondary;
+    button.signup {
+      background: $secondary;
+      grid-column-start: 2;
+      grid-column-end: 4;
       color: $bg-color;
-      padding: 10px;
-      border-radius: .8em;
+      padding: 0.5em 1em;
+      margin-right: 0.25em;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      border-radius: 1em;
+      text-align: center;
+      justify-self: center;
+      cursor: pointer;
     }
 
-    li.signup:hover {
+    button.signup:hover {
       background-color: unset;
-      box-sizing: border-box;
       outline: 2px solid $secondary;
+      text-align: center;
       border-radius: .8em;
       color: $secondary;
       transform: scale(1)
     }
   }
-}
 
-// Media queries for different screen sizes
-@media (max-width: 768px) {
-  .navbar {
-      flex-direction: column;
-
-      a {
-          margin: 0.5em 0;
-          text-align: center;
-      }
+  .hamburger-menu {
+    justify-self: start;
+    align-self: center;
+    cursor: pointer;
+    color: $secondary;
+    visibility: hidden;
   }
 }
 
-@media (min-width: 768px) {
+// Media queries for different screen sizes
+@media (max-width: 952px) {
   .navbar {
-      flex-wrap: nowrap;
+    grid-template-columns: 15% auto 40% 5%;
 
-      a {
-          margin: 0 1em;
+    div.logo-wrapper {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      justify-self: start;
+      margin-left: 0;
+    }
+  
+    div.link-wrapper {
+      display: none;
+    }
+  
+    .hamburger-menu {
+      visibility: visible;
+      grid-row-start: 1;
+      justify-self: center;
+      grid-row-end: 2;
+      grid-column-start: 4;
+      grid-column-end: 5;
+    }
+  
+    div.link-cta {
+      grid-template-columns: 20% 80%;
+      gap: 20px;
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      display: grid;
+      justify-self: end;
+      margin-right: 40px;
+    
+      ul {
+        display: grid;
+        grid-column-start: 1;
+        padding-right: 10px;
+        border-right: .2em solid rgb(219, 214, 214);
+        grid-column-end: 3;
       }
+    
+      button.signup {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .navbar.animation {
+
+
+    li.login {
+      visibility: hidden;
+    }
+
+    button.signup {
+      visibility: hidden;
+    }
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .navbar {
+
+    li.login {
+      visibility: hidden;
+    }
+  
+    button.signup {
+      visibility: hidden;
+    }
+
+    div.link-cta {
+      ul {
+        border-right: unset
+      }
+    }
+
+    .hamburger-menu {
+
+      grid-column-start: 3;
+      grid-column-end: 4;
+      justify-self: end;
+    }
+  }
+
+  .navbar.animation {
+    li.login {
+      visibility: visible;
+    }
+  
+    button.signup {
+      visibility: visible;
+    }
+  }
+
+
+}
+
+@media (max-width: 473px) {
+  .navbar {
+    .hamburger-menu {
+      margin-right: 50px;
+    }
   }
 }

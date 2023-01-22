@@ -25,7 +25,6 @@ function DefaultLayout({ isCanAccess }: DefaultLayoutProps) {
         <Routes>
           {routes.map((route) => (
             <>
-            {console.log(route)}
             <Route 
               path={route.path}
               element={<Content element={route.element} title={route.title} />}
