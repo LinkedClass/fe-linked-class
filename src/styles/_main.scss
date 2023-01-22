@@ -1,0 +1,125 @@
+@use './variables';
+@use "sass:map";
+
+// h1 {
+//   color: variables.$primary
+// }
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $roboto;
+}
+
+
+// body {
+//   background-color: $bg-color;
+// }
+
+.default-layout {
+  background-color: $bg-color;
+}
+
+div.wrapper {
+  width: 100%;
+
+  div.content {
+    display: flex;
+    gap: 10px;
+  }
+
+  div.box {
+    width: 100px;
+    height: 100px;
+  }
+
+  .div-1 {
+    background-color: $primary;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+  }
+  .div-2{
+    background-color: $secondary;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-3{
+    background-color: $tertiary;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-4{
+    background-color: $text-color;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-5{
+    background-color: $bg-color;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-6{
+    background-color: $error;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-7{
+    background-color: $success;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-8{
+    background-color: $warning;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-9{
+    background-color: $info;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-10{
+    background-color: $link-color;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-11{
+    background-color: $highlight;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-12{
+    background-color: $hover;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+  .div-13{
+    background-color: $disabled;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+    
+  };
+}
